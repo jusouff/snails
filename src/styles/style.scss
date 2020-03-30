@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700&display=swap');
+
+@font-face {
+  font-family: "lapsus-pro";
+  src: url("/dist/fonts/lapsus-pro/LapsusPro-Bold.otf") format("opentype");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(140,1,79);
+  background: radial-gradient(circle, rgba(140,1,79,1) 0%, rgba(40,10,27,1) 100%);
+  }
+
+//HEADER
+.container {
+  position: relative;
+  display: grid;
+  grid-column-gap: 2rem;
+  grid-template-rows: 25rem;
+  grid-template-columns: 2fr 1fr;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 99vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0);
+    background-image: linear-gradient(45deg, rgba(0,0, 0, .1) 25%, transparent 25%, transparent 75%,rgba(0, 0, 0, .1) 75%), linear-gradient(45deg, rgb(0, 0, 0, .1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .1) 75%);
+    background-size: 24px 24px;
+    background-position: 0 0, 12px 12px;
+    opacity: 25%;
+  }
+}
+
+.intro-img {
+  grid-column: 1/-1;
+  display: grid;
+  position: relative;
+  height: 25rem;
+  width: 99vw;
+  justify-self: center;
+  h1 {
+    font-size: 0;
+  }
+  &_intro-text {
+    z-index:2;
+    margin-top: 2rem;
+    position: absolute;
+    justify-self: center;
+  }
+  .group-qr {
+    position: absolute;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    margin: 4rem;
+    top: 24rem;
+    left: 60.3%;
+    &_bave {
+      z-index:2;
+      position: absolute;
+      color: white;
+      bottom: -5.8rem;
+      right:1.8rem;
+    }
+    &_qr {
+      z-index:2;
+      position: absolute;
+      background-color: white;
+      padding: .5rem;
+      justify-self: center;
+      transform: rotate(15deg);
+    }
+  }
+}
+
+.box {
+z-index:1;
+grid-column: 1/2;
+height: auto;
+background: rgba(0, 0, 0, 0.5);
+box-shadow: 0px 0px 20px rgba(222, 0, 131, 0.25);
+border-radius: 10px;
+padding: 2.5rem 4rem;
+padding-right: 8%;
+margin-top: 4rem;
+margin-left: 29%;
+margin-bottom: 5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-family: "lapsus-pro", sans-serif;
+  margin-bottom: 1rem;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  font-family: 'Titillium Web', sans-serif;
+  color: white;
+  margin-bottom: .5rem;
+  font-size: 1.3rem;
+  line-height: 1.7rem;
+  font-weight: 300;
+}
+.store {
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  svg {
+    border-radius: 5px;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    -webkit-box-shadow: 2px 3px 20px 0px rgba(121,0,73,1);
+      -moz-box-shadow: 2px 3px 20px 0px rgba(121,0,73,1);
+      box-shadow: 2px 3px 20px 0px rgba(121,0,73,1);
+  }
+}
+.depart {
+  position: absolute;
+  bottom: -8.7rem;
+  z-index:3;
+  justify-self: start;
+}
+.arrivee {
+  position: absolute;
+  bottom: -8.7rem;
+  right: 8.5rem;
+  z-index:3;
+  justify-self: end;
+}
+.drapeau {
+  position: absolute;
+  bottom: -5rem;
+  z-index:2;
+  justify-self: end;
+  right: 5rem;
+}
+
+.fil-escargots {
+  position: absolute;
+  bottom: -11rem;
+  z-index:3;
+  justify-self: start;
+  margin-left: 5%;
+}
+
+//.fil-escargots-copy {
+//  position: absolute;
+//  bottom: -8.6rem;
+//  z-index:3;
+//  justify-self: start;
+//  margin-left: -2.5rem;
+//}
+
+//MAIN
+.screen-course {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 4rem;
+  z-index: 1;
+  margin-top: 4rem;
+  background: rgb(252,70,107);
+  background: radial-gradient(circle, rgba(252,70,107,1) 0%, rgba(218,17,130,1) 50%, rgba(163,14,97,1) 100%);
+  padding: 4rem 15%;
+  padding-top: 8rem;
+  position: relative;
+  width: 100%;
+  .img-groupe {
+    &_menu-screen {
+      width: 100%;
+      margin-bottom: 2rem;
+      transform: rotate(-5deg);
+    }
+  }
+  &_box2 {
+    grid-column: 2/3;
+    margin-left: 0rem;
+    align-self: center;
+    .course-screen {
+      width: 100%;
+      margin-bottom: 2rem;
+      transform: rotate(5deg);
+    }
+    article {
+      margin-bottom: 2rem;
+      p:last-child {
+        margin-bottom: 4rem;
+      }
+    }
+    &_escargot-rose {
+      position: absolute;
+      height: 100px;
+      bottom: 0;
+      left:0;
+      background-color: green;
+    }
+  }
+}
+
+//FOOTER
+footer {
+  display: grid;
+  justify-content: center;
+  margin: 2rem 0;
+  p, a {
+    font-size: .8rem;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+    text-decoration: none;
+  }
+  a {
+    &:hover {
+     border-bottom: 1px solid white;
+    }
+  }
+  .reseaux-sociaux {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: flex-start;
+    margin: 1rem 0;
+    
+    p {
+      font-size: 1rem;
+      margin-right: 1rem;
+    }
+    svg {
+      margin-right: 1rem;
+    }
+  }
+ 
+}
