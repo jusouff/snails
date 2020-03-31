@@ -2,7 +2,7 @@
  // test commit
 @font-face {
   font-family: "lapsus-pro";
-  src: url("/fonts/lapsusPro/LapsusPro-Bold.otf") format("opentype");
+  src: url("/dist/fonts/lapsusPro/LapsusPro-Bold.otf") format("opentype");
 }
 
 * {
@@ -18,78 +18,145 @@ body {
 
 //HEADER
 .container {
-  position: relative;
-  display: grid;
-  grid-column-gap: 2rem;
-  grid-template-rows: 25rem;
-  grid-template-columns: 2fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100vw;
+  @media screen and (min-width: 64rem) {
+    position: relative;
+    display: grid;
+    grid-column-gap: 2rem;
+    grid-template-rows: 25rem;
+    grid-template-columns: 2fr 1fr;
+  }
   &::before {
     content: "";
     position: absolute;
-    width: 99vw;
-    height: 100vh;
     background-color: rgba(255, 255, 255, 0);
-    background-image: linear-gradient(45deg, rgba(0,0, 0, .1) 25%, transparent 25%, transparent 75%,rgba(0, 0, 0, .1) 75%), linear-gradient(45deg, rgb(0, 0, 0, .1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .1) 75%);
+    background-image: linear-gradient(45deg, rgba(0,0, 0, .1) 25%, transparent 25%,   transparent 75%,rgba(0, 0, 0, .1) 75%),   linear-gradient(45deg, rgb(0, 0, 0, .1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .1) 75%);
     background-size: 24px 24px;
     background-position: 0 0, 12px 12px;
     opacity: 25%;
+    height: 100vh;
+    width: 99vw;
   }
 }
 
 .intro-img {
-  grid-column: 1/-1;
-  display: grid;
-  position: relative;
-  height: 25rem;
+  //height: auto;
+  z-index:1;
   width: 99vw;
   justify-self: center;
+  grid-column: 1/-1;
+  height: 190px;
+  @media screen and (min-width: 48rem) { 
+  height: 300px;
+  }
+  @media screen and (min-width: 64rem) { 
+    //grid-column: 1/-1;
+    display: grid;
+    position: relative;
+    height: 25rem;
+    width: 99vw;
+    justify-self: center;
+  }
   h1 {
     font-size: 0;
   }
   &_intro-text {
-    z-index:2;
+    grid-column: 1/-1;
+    margin-top: -4rem;
+    height: 22rem;
+    text-align: center;
+    @media screen and (min-width: 48rem) {
+      height: 25rem;
+    } 
+    @media screen and (min-width: 64rem) { 
+    z-index: 2;
     margin-top: 2rem;
     position: absolute;
     justify-self: center;
+    }
+    svg {
+      width: 90%;
+    }
   }
   .group-qr {
-    position: absolute;
-    justify-content: center;
-    width: 300px;
-    height: 300px;
-    margin: 4rem;
-    top: 24rem;
-    left: 60.3%;
-    &_bave {
-      z-index:2;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    @media screen and (min-width: 48rem) {
+      opacity: 100%;
+      position: absolute;
+      justify-content: center;
+      width: 250px;
+      height: 250px;
+      margin: 4rem;
+      top: 13.9rem;
+      left: 50%;
+      z-index: -1;
+    } 
+    @media screen and (min-width: 64rem) { 
+      opacity: 100%;
+      position: absolute;
+      justify-content: center;
+      width: 300px;
+      height: 300px;
+      margin: 4rem;
+      top: 22rem;
+      left: 60%;
+      z-index: -1;
+    }
+  &_bave {
+    @media screen and (min-width: 48rem) {
+      opacity: 0;
+      position: absolute;
+    }
+    @media screen and (min-width: 64rem) {
+      opacity: 100%;
+      z-index: 2;
       position: absolute;
       color: white;
-      bottom: -5.8rem;
-      right:1.8rem;
+      bottom: -4.8rem;
+      right: 1rem;
     }
-    &_qr {
-      z-index:2;
+  }
+  &_qr {
+    @media screen and (min-width: 48rem) {
+      z-index: 2;
       position: absolute;
       background-color: white;
       padding: .5rem;
       justify-self: center;
-      transform: rotate(15deg);
+      transform: rotate(10deg);
     }
+    @media screen and (min-width: 64rem) {
+    }
+  } 
   }
 }
 
 .box {
-z-index:1;
-grid-column: 1/2;
-height: auto;
-background: rgba(0, 0, 0, 0.5);
-box-shadow: 0px 0px 20px rgba(222, 0, 131, 0.25);
-border-radius: 10px;
-padding: 2.5rem 4rem;
-padding-right: 8%;
-margin-top: 4rem;
-margin-left: 29%;
-margin-bottom: 5rem;
+  z-index: 0;
+  height: auto;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 20px rgba(222, 0, 131, 0.25);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem;
+  margin-bottom: 2rem;
+  @media screen and (min-width: 48rem) { 
+    margin-right: 35%;
+    padding-right: 4rem;
+  }
+  @media screen and (min-width: 64rem) { 
+    z-index: 0;
+    grid-column: 1/2;
+    padding: 2.5rem 4rem;
+    margin-top: 4rem;
+    margin-left: 25%;
+    margin-bottom: 7rem;
+    margin-right: 0;
+  }
 }
 
 h2 {
@@ -99,99 +166,172 @@ h2 {
   color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 2.7rem;
 }
 
 p {
   font-family: 'Titillium Web', sans-serif;
   color: white;
   margin-bottom: .5rem;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   line-height: 1.7rem;
   font-weight: 300;
+  @media screen and (min-width: 48rem) { 
+    font-size: 1.3rem;
+  }
 }
+
 .store {
-  z-index: 2;
   display: flex;
-  justify-content: flex-start;
+  grid-area: "store";
+  order: 2;
+  width: 100%;
+  justify-content: space-evenly;
+  @media screen and (min-width: 48rem) { 
+    order: 0;
+    position: absolute;
+    z-index: 2;
+    width: 100%; 
+    left: -2rem;
+    justify-content: center;
+  }
   svg {
-    border-radius: 5px;
-    margin-right: 2rem;
-    margin-top: 2rem;
-    -webkit-box-shadow: 2px 3px 20px 0px rgba(121,0,73,1);
+    margin-top: 1rem;
+    width: 45%;
+    @media screen and (min-width: 48rem) { 
+      width: auto;
+      border-radius: 5px;
+      margin-right: 2rem;
+      margin-top: 2rem;
+      -webkit-box-shadow: 2px 3px 20px 0px rgba(121,0,73,1);
       -moz-box-shadow: 2px 3px 20px 0px rgba(121,0,73,1);
       box-shadow: 2px 3px 20px 0px rgba(121,0,73,1);
+    }
   }
 }
 .depart {
-  position: absolute;
-  bottom: -8.7rem;
-  z-index:3;
-  justify-self: start;
+  display: none;
+  @media screen and (min-width: 48rem) { 
+    position: absolute;
+    bottom: -8.7rem;
+    z-index:3;
+    justify-self: start;
+  }
 }
 .arrivee {
-  position: absolute;
-  bottom: -8.7rem;
-  right: 8.5rem;
-  z-index:3;
-  justify-self: end;
+  display: none;
+  @media screen and (min-width: 64rem) { 
+    position: absolute;
+    bottom: -8.7rem;
+    right: 8.5rem;
+    z-index:3;
+    justify-self: end;
+  }
 }
-.drapeau {
-  position: absolute;
-  bottom: -5rem;
-  z-index:2;
-  justify-self: end;
-  right: 5rem;
-}
-
-.fil-escargots {
-  position: absolute;
-  bottom: -11rem;
-  z-index:3;
-  justify-self: start;
-  margin-left: 5%;
-}
-
-//.fil-escargots-copy {
+//.drapeau {
 //  position: absolute;
-//  bottom: -8.6rem;
-//  z-index:3;
-//  justify-self: start;
-//  margin-left: -2.5rem;
+//  bottom: -5rem;
+//  z-index:2;
+//  justify-self: end;
+//  right: 5rem;
 //}
+
+// SVG @IMPORT "img-fil-escargot"
+.fil-escargots {
+ display: none;
+ position: absolute;
+  @media screen and (min-width: 48rem) { 
+    z-index: 3;
+    display: block;
+    bottom: 7.5rem;
+    width: 90%;
+    margin-left: 2rem;
+    height: auto;
+  }
+  @media screen and (min-width: 64rem) { 
+    bottom: -11rem;
+    justify-self: start;
+    margin-left: 5%;
+  }
+}
 
 //MAIN
 .screen-course {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 4rem;
-  z-index: 1;
-  margin-top: 4rem;
-  background: rgb(252,70,107);
-  background: radial-gradient(circle, rgba(252,70,107,1) 0%, rgba(218,17,130,1) 50%, rgba(163,14,97,1) 100%);
-  padding: 4rem 15%;
-  padding-top: 8rem;
-  position: relative;
-  width: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "glisse",
+                         "cadeaux",
+                         "store";
+    background: rgb(252,70,107);
+    background: radial-gradient(circle, rgba(252,70,107,1) 0%, rgba(218,17,130,1) 50%, rgba(163,14,97,1) 100%);
+    width: 100%;
+    padding: 2rem;
+  @media screen and (min-width: 48rem) { 
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 2rem;
+    z-index: 1;
+    margin-top: 2rem;
+    padding: 4rem 2rem;
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+    position: relative;
+  }
+  @media screen and (min-width: 64rem) { 
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4rem;
+    z-index: 1;
+    margin-top: 4rem;
+    padding: 4rem 15%;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    position: relative;
+  }
   .img-groupe {
+    display: flex;
+    flex-direction: column;
+    order: 2;
+    grid-column: 1/2;
+    grid-area: "cadeaux";
+    align-self: center;
+    @media screen and (min-width: 48rem) { 
+      display: block;
+      order: 0;
+    }
     &_menu-screen {
+      order: 1;
       width: 100%;
-      margin-bottom: 2rem;
       transform: rotate(-5deg);
+      margin: 2rem 0;
+      @media screen and (min-width: 48rem) {
+        margin-bottom: 2rem;
+        order: 0;
+      }
     }
   }
   &_box2 {
-    grid-column: 2/3;
-    margin-left: 0rem;
-    align-self: center;
+      order: 1;
+      grid-column: 1/2;
+      grid-area: "glisse";
+    @media screen and (min-width: 48rem) { 
+      grid-column: 2/3;
+      align-self: center;
+    }
     .course-screen {
       width: 100%;
       margin-bottom: 2rem;
       transform: rotate(5deg);
+      margin: 2rem 0;
     }
     article {
-      margin-bottom: 2rem;
+      margin: 0rem;
+      @media screen and (min-width: 48rem) {  
+        margin-bottom: 2rem;
+      }
       p:last-child {
-        margin-bottom: 4rem;
+        @media screen and (min-width: 48rem) { 
+          margin-bottom: 4rem;
+        }
       }
     }
     &_escargot-rose {
@@ -206,10 +346,33 @@ p {
 
 //FOOTER
 footer {
-  display: grid;
-  justify-content: center;
-  margin: 2rem 0;
-  p, a {
+  margin: 2rem;
+  text-align: center;
+  @media screen and (min-width: 64rem) { 
+    display: grid;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  .sponsors {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: auto;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    column-gap: 2.5rem;
+    row-gap: 1rem;
+    img {
+      width: 55px;
+    }
+  }
+  p {
+    font-size: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+  .sources, a {
     font-size: .8rem;
     color: white;
     font-family: 'Titillium Web', sans-serif;
@@ -223,13 +386,9 @@ footer {
   .reseaux-sociaux {
     grid-column: 1/-1;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     margin: 1rem 0;
-    
-    p {
-      font-size: 1rem;
-      margin-right: 1rem;
-    }
+
     svg {
       margin-right: 1rem;
     }
