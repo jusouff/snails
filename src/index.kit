@@ -10,22 +10,26 @@
   <header class="container">
     <section class="intro-img">
       <h1>Run's Snails</h1>
-      <div class="group-qr">
-        <figure class="group-qr_bave">
-          <!--@import "img-bave"-->
-        </figure>
+      <figure class="group-qr">
         <img class="group-qr_qr" src="img/QR.png" alt="QR code prototype">
-      </div>
+      </figure>
       <figure class="intro-img_intro-text">
         <!--@import "img-intro2"-->
       </figure>
     </section>
     <section class="box">
-      <h2>Faisons des courses, des rencontres et le plein de cadeaux !</h2>
+      <h2>Fais des courses, des rencontres et le plein de cadeaux !</h2>
       <p>Dans ce jeu, tu te lanceras dans d'incroyables courses avec les gens de ton quartier. Oui, oui, tu vas rendre les files d'attente funs et indispensables !</p> 
       <p>A partir d'aujourd'hui, tu rêveras de te retrouver dans une file interminable et peut-être envisageras-tu de les provoquer toi-même ? </p>
     </section>
-    <!--@import "img-fil-escargot"-->
+    <section class="escargots">
+      <figure class="bullMel">
+        <img class="mel" src="img/mel.svg" alt="escargot Mel Glupson">
+      </figure>
+      <img src="img/escargot-vert.svg" alt="escargot vert">
+      <img class="femelle" src="img/escargot-femelle.svg" alt="escargot femelle">
+      <img class="coquille" src="img/escargot-coquille.svg" alt="escargot dans sa coquille">
+    </section> 
     <svg class="arrivee" width="126" height="75" viewBox="0 0 126 75" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M108.234 14.9803H70.1823L87.9478 0H126L108.234 14.9803Z" fill="#BE1622"/>
       <path d="M90.4332 29.9925H52.3778L70.1466 15.0121H108.199L90.4332 29.9925Z" fill="white"/>
@@ -33,11 +37,6 @@
       <path d="M55.0874 59.7909H18.0352L35.804 44.8106H72.8561L55.0874 59.7909Z" fill="white"/>
       <path d="M37.0521 75H0L17.7655 60.0197H54.8209L37.0521 75Z" fill="#BE1622"/>
       </svg>
-    <!--<svg class="drapeau" width="104" height="171" viewBox="0 0 104 171" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M23.1477 165.832V0.000213623" stroke="white" stroke-width="9.48696" stroke-miterlimit="10" stroke-linecap="round"/>
-      <path d="M19.2928 2.69702C19.2928 2.69702 75.2601 20.5341 103.244 29.457C76.2063 37.2006 19.2928 52.6964 19.2928 52.6964V2.69702V2.69702Z" fill="#E30613"/>
-      <path d="M21.7545 5.56714C46.4176 13.3888 71.0807 21.219 95.7438 29.0407C85.0725 32.171 74.4012 35.3014 63.7299 38.4318C70.8441 35.3014 77.9583 32.171 85.0725 29.0407C63.9665 21.219 42.8605 13.3888 21.7545 5.56714Z" fill="#BE1622"/>
-      </svg>-->
   </header>
   <main>
     <section class="screen-course">
@@ -82,5 +81,16 @@
     Merci à tous mes formateurs !
     </p>
   </footer>
+  <script>
+    let bulleMel = document.querySelector('.bullMel');
+
+    document.addEventListener('click', e => {
+      if (e.target.classList.contains('mel')) {
+        e.preventDefault(); 
+        bulleMel.classList.toggle ("active");
+      }
+      else {}
+    });
+  </script>
 </body>
 </html>

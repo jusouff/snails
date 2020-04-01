@@ -21,12 +21,14 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     width: 100vw;
+  @media screen and (min-width: 48rem) {
+    margin-top: 2rem;
+  }
   @media screen and (min-width: 64rem) {
     position: relative;
     display: grid;
-    grid-column-gap: 2rem;
     grid-template-rows: 25rem;
-    grid-template-columns: 2fr 1fr;
+    margin-top: 0rem;
   }
   &::before {
     content: "";
@@ -38,11 +40,11 @@ body {
     opacity: 25%;
     height: 100vh;
     width: 99vw;
+    z-index: -1;
   }
 }
 
 .intro-img {
-  //height: auto;
   z-index:1;
   width: 99vw;
   justify-self: center;
@@ -52,7 +54,6 @@ body {
   height: 300px;
   }
   @media screen and (min-width: 64rem) { 
-    //grid-column: 1/-1;
     display: grid;
     position: relative;
     height: 25rem;
@@ -64,17 +65,18 @@ body {
   }
   &_intro-text {
     grid-column: 1/-1;
-    margin-top: -4rem;
+    margin-top: -6rem;
     height: 22rem;
     text-align: center;
     @media screen and (min-width: 48rem) {
+      margin-top: -3rem;
       height: 25rem;
     } 
     @media screen and (min-width: 64rem) { 
-    z-index: 2;
-    margin-top: 2rem;
-    position: absolute;
-    justify-self: center;
+      margin-top: 2rem;
+      z-index: 2;
+      position: absolute;
+      justify-self: center;
     }
     svg {
       width: 90%;
@@ -91,9 +93,9 @@ body {
       width: 250px;
       height: 250px;
       margin: 4rem;
-      top: 13.9rem;
+      top: 16.8rem;
       left: 50%;
-      z-index: -1;
+      z-index: -1; 
     } 
     @media screen and (min-width: 64rem) { 
       opacity: 100%;
@@ -102,71 +104,70 @@ body {
       width: 300px;
       height: 300px;
       margin: 4rem;
-      top: 22rem;
+      top: 22.5rem;
       left: 60%;
       z-index: -1;
     }
-  &_bave {
-    @media screen and (min-width: 48rem) {
+    &::before {
+      content: url("/dist/img/bave.svg");
+      width: 0;
       opacity: 0;
-      position: absolute;
+      @media screen and (min-width: 48rem) {
+        opacity: 100%;
+        position: absolute;
+        z-index: 4;
+        bottom: -8rem;
+        right: -2.3rem;
+        width: 24px;
+      }
+      @media screen and (min-width: 64rem) {
+        bottom: -5rem;
+        right: .8rem;
+      }
     }
-    @media screen and (min-width: 64rem) {
-      opacity: 100%;
-      z-index: 2;
-      position: absolute;
-      color: white;
-      bottom: -4.8rem;
-      right: 1rem;
-    }
-  }
-  &_qr {
-    @media screen and (min-width: 48rem) {
-      z-index: 2;
-      position: absolute;
-      background-color: white;
-      padding: .5rem;
-      justify-self: center;
-      transform: rotate(10deg);
-    }
-    @media screen and (min-width: 64rem) {
-    }
-  } 
+    &_qr {
+      @media screen and (min-width: 48rem) {
+        z-index: 2;
+        position: absolute;
+        background-color: white;
+        padding: .5rem;
+        justify-self: center;
+        transform: rotate(10deg);
+      }
+    } 
   }
 }
 
 .box {
-  z-index: 0;
-  height: auto;
-  background: rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 0px 20px rgba(222, 0, 131, 0.25);
-  border-radius: 10px;
   padding: 2rem;
-  margin: 2rem;
-  margin-bottom: 2rem;
   @media screen and (min-width: 48rem) { 
+    z-index: 0;
+    height: auto;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 20px rgba(222, 0, 131, 0.25);
+    border-radius: 10px;
+    margin: 2rem;
+    margin-bottom: 2rem;
     margin-right: 35%;
-    padding-right: 4rem;
+    padding-right: 4.5rem;
   }
   @media screen and (min-width: 64rem) { 
-    z-index: 0;
-    grid-column: 1/2;
-    padding: 2.5rem 4rem;
-    margin-top: 4rem;
-    margin-left: 25%;
-    margin-bottom: 7rem;
-    margin-right: 0;
+    margin-left: 20%;
+    margin-bottom: 6rem;
   }
 }
 
 h2 {
-  font-size: 2.5rem;
-  font-family: "lapsus-pro", sans-serif;
+  font-size: 2rem;
   margin-bottom: 1rem;
+  font-family: "lapsus-pro", sans-serif;
   color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 2.7rem;
+  line-height: 2.5rem;
+  @media screen and (min-width: 64rem) { 
+    font-size: 2.5rem;
+  }
 }
 
 p {
@@ -181,77 +182,62 @@ p {
   }
 }
 
-.store {
-  display: flex;
-  grid-area: "store";
-  order: 2;
-  width: 100%;
-  justify-content: space-evenly;
+.escargots {
+  display: none;
+  position: absolute;
   @media screen and (min-width: 48rem) { 
-    order: 0;
-    position: absolute;
-    z-index: 2;
-    width: 100%; 
-    left: -2rem;
-    justify-content: center;
+    display: flex;
+    z-index: 3;
+    bottom: 5rem;
+    left: 0rem;
   }
-  svg {
-    margin-top: 1rem;
-    width: 45%;
-    @media screen and (min-width: 48rem) { 
-      width: auto;
-      border-radius: 5px;
-      margin-right: 2rem;
-      margin-top: 2rem;
-      -webkit-box-shadow: 2px 3px 20px 0px rgba(121,0,73,1);
-      -moz-box-shadow: 2px 3px 20px 0px rgba(121,0,73,1);
-      box-shadow: 2px 3px 20px 0px rgba(121,0,73,1);
+  @media screen and (min-width: 64rem) {
+    bottom: -10rem;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  img {
+    height: 100px;
+    @media screen and (min-width: 64rem) { 
+    height: auto;
     }
   }
-}
-.depart {
-  display: none;
-  @media screen and (min-width: 48rem) { 
-    position: absolute;
-    bottom: -8.7rem;
-    z-index:3;
-    justify-self: start;
+  
+  .active {
+    &::before {
+      content: url("/dist/img/bulle.svg");  
+      z-index: 3; 
+      position: absolute;
+      bottom: 7rem;
+      left: 7rem;
+    }
+    @media screen and (min-width: 64rem) { 
+      &::before {
+        content: url("/dist/img/bulle.svg");  
+        z-index: 3; 
+        position: absolute;
+        bottom: 13rem;
+        left: 22rem;
+      }
+    }
   }
-}
-.arrivee {
-  display: none;
-  @media screen and (min-width: 64rem) { 
-    position: absolute;
-    bottom: -8.7rem;
-    right: 8.5rem;
-    z-index:3;
-    justify-self: end;
-  }
-}
-//.drapeau {
-//  position: absolute;
-//  bottom: -5rem;
-//  z-index:2;
-//  justify-self: end;
-//  right: 5rem;
-//}
-
-// SVG @IMPORT "img-fil-escargot"
-.fil-escargots {
- display: none;
- position: absolute;
-  @media screen and (min-width: 48rem) { 
-    z-index: 3;
+  .mel {
     display: block;
-    bottom: 7.5rem;
-    width: 90%;
-    margin-left: 2rem;
-    height: auto;
+    height: 128px; 
+    @media screen and (min-width: 64rem) { 
+      height: 190px;
+      margin-left: 4rem;
+    }
   }
-  @media screen and (min-width: 64rem) { 
-    bottom: -11rem;
-    justify-self: start;
-    margin-left: 5%;
+  .femelle {
+    margin-top: 1rem;
+  }
+  .coquille { 
+    height: 150px;
+    @media screen and (min-width: 64rem) { 
+      margin-top: 2rem;
+      height: 220px;
+    }
   }
 }
 
@@ -343,6 +329,63 @@ p {
     }
   }
 }
+
+.store {
+  display: flex;
+  grid-area: "store";
+  order: 2;
+  width: 100%;
+  justify-content: space-evenly;
+  @media screen and (min-width: 48rem) { 
+    order: 0;
+    position: absolute;
+    z-index: 2;
+    justify-content: center;
+  }
+  @media screen and (min-width: 64rem) {
+    left:0;
+  }
+  svg {
+    margin-top: 1rem;
+    width: 45%;
+    @media screen and (min-width: 48rem) { 
+      width: auto;
+      border-radius: 5px;
+      margin-right: 2rem;
+      margin-top: 2rem;
+      -webkit-box-shadow: 2px 3px 20px 0px rgba(121,0,73,1);
+      -moz-box-shadow: 2px 3px 20px 0px rgba(121,0,73,1);
+      box-shadow: 2px 3px 20px 0px rgba(121,0,73,1);
+    }
+  }
+}
+.depart {
+  display: none;
+  @media screen and (min-width: 48rem) { 
+    position: absolute;
+    bottom: -8.7rem;
+    z-index:3;
+    justify-self: start;
+  }
+}
+.arrivee {
+  display: none;
+  @media screen and (min-width: 64rem) { 
+    position: absolute;
+    bottom: -8.7rem;
+    right: 8.5rem;
+    z-index:3;
+    justify-self: end;
+  }
+}
+//.drapeau {
+//  position: absolute;
+//  bottom: -5rem;
+//  z-index:2;
+//  justify-self: end;
+//  right: 5rem;
+//}
+
 
 //FOOTER
 footer {
